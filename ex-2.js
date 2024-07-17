@@ -1,18 +1,23 @@
 
 function findBookIndex(books, searchBook) {
   // let search =0
-  let index = -1
-  for(let ans in books){
-    console.log(ans);
-    let answer = books[ans]
-    
-    console.log(answer);
-    console.log(answer.title);
-    if(answer.title === searchBook){
-      index = ans
+  let left =0
+  let right = books.length-1
+  let index =-1
+  while(left<=right){
+    let mid = Math.floor((left+right)/2)
+
+    if (books[mid].title===searchBook){
+      index = mid;
+      break
+    }else if (books[mid].title<searchBook){
+      left = mid+1
+    } else{
+      right = mid-1
     }
+    
   }
-  return index
+  return index;
 }
 
 
@@ -45,3 +50,16 @@ console.log(result2);
 
 
 //O(n) input เพิ่มขึ้นตามลำดับที่ใส่เข้ามา
+
+// let index = -1
+//   for(let ans in books){
+//     console.log(ans);
+//     let answer = books[ans]
+    
+//     console.log(answer);
+//     console.log(answer.title);
+//     if(answer.title === searchBook){
+//       index = ans
+//     }
+//   }
+//   return index
